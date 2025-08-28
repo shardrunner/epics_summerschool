@@ -1,0 +1,915 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>$(TITLE) : Main</name>
+  <macros>
+    <P>ADC3117:</P>
+    <R></R>
+    <TITLE>MTCA SCOPE</TITLE>
+    <CH>CH1</CH>
+  </macros>
+  <width>1200</width>
+  <height>980</height>
+  <actions>
+  </actions>
+  <widget type="rectangle" version="2.0.0">
+    <name>BGGrey03-background_11</name>
+    <x>30</x>
+    <y>110</y>
+    <width>450</width>
+    <height>720</height>
+    <line_width>0</line_width>
+    <background_color>
+      <color name="GROUP-BACKGROUND" red="200" green="205" blue="201">
+      </color>
+    </background_color>
+    <corner_width>5</corner_width>
+    <corner_height>5</corner_height>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>BGGrey03-titlebar_5</name>
+    <x>10</x>
+    <y>60</y>
+    <width>490</width>
+    <height>790</height>
+    <line_width>0</line_width>
+    <background_color>
+      <color name="GROUP-BORDER" red="150" green="155" blue="151">
+      </color>
+    </background_color>
+    <corner_width>10</corner_width>
+    <corner_height>10</corner_height>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>titleBar</name>
+    <class>TITLE-BAR</class>
+    <width>1200</width>
+    <height>50</height>
+    <line_width>0</line_width>
+    <background_color>
+      <color name="PRIMARY-HEADER-BACKGROUND" red="151" green="188" blue="202">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>title</name>
+    <class>TITLE</class>
+    <macros>
+      <P>FOO:</P>
+      <R>BAR:</R>
+    </macros>
+    <text>$(TITLE) - $(P)$(R)</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>600</width>
+    <height>50</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button</name>
+    <text>HELP</text>
+    <x>2000</x>
+    <y>10</y>
+    <font>
+      <font family="Source Sans Pro" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Acquisition_Params</name>
+    <x>10</x>
+    <y>60</y>
+    <width>490</width>
+    <height>790</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="spinner" version="2.0.0">
+      <name>Spinner_9</name>
+      <pv_name>$(P)$(R)ClockDivider</pv_name>
+      <x>340</x>
+      <y>150</y>
+      <width>110</width>
+      <height>30</height>
+      <actions>
+      </actions>
+      <minimum>1.0</minimum>
+      <maximum>32.0</maximum>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>BGGrey02-title_20</name>
+      <text>Acquisition</text>
+      <width>490</width>
+      <height>50</height>
+      <font>
+        <font family="Source Sans Pro" style="BOLD_ITALIC" size="26.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="WHITE" red="255" green="255" blue="255">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_118</name>
+      <pv_name>$(P)$(R)ClockDividerR</pv_name>
+      <x>210</x>
+      <y>150</y>
+      <width>110</width>
+      <height>30</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_119</name>
+      <pv_name>$(P)$(R)SamplingFrequencyR</pv_name>
+      <x>210</x>
+      <y>190</y>
+      <width>110</width>
+      <height>30</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_120</name>
+      <pv_name>$(P)$(R)ClockFrequencyR</pv_name>
+      <x>210</x>
+      <y>110</y>
+      <width>110</width>
+      <height>30</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_324</name>
+      <text>Clock Frequency:</text>
+      <x>40</x>
+      <y>110</y>
+      <width>160</width>
+      <height>30</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_325</name>
+      <text>Acquire:</text>
+      <x>40</x>
+      <y>70</y>
+      <width>160</width>
+      <height>30</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_326</name>
+      <text>Sample Frequency:</text>
+      <x>40</x>
+      <y>190</y>
+      <width>160</width>
+      <height>30</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_330</name>
+      <text>Clock Divider:</text>
+      <x>40</x>
+      <y>150</y>
+      <width>160</width>
+      <height>30</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_332</name>
+      <text>Trigger Source:</text>
+      <x>40</x>
+      <y>230</y>
+      <width>160</width>
+      <height>30</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_127</name>
+      <pv_name>$(P)$(R)TriggerSourceR</pv_name>
+      <x>210</x>
+      <y>230</y>
+      <width>110</width>
+      <height>30</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Spinner_12</name>
+      <pv_name>$(P)$(R)TriggerSource</pv_name>
+      <x>340</x>
+      <y>230</y>
+      <width>110</width>
+      <background_color>
+        <color name="Write_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_333</name>
+      <text>Trigger Line:</text>
+      <x>40</x>
+      <y>270</y>
+      <width>160</width>
+      <height>30</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_128</name>
+      <pv_name>$(P)$(R)TriggerLineR</pv_name>
+      <x>210</x>
+      <y>270</y>
+      <width>110</width>
+      <height>30</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Spinner_13</name>
+      <pv_name>$(P)$(R)TriggerLine</pv_name>
+      <x>340</x>
+      <y>270</y>
+      <width>110</width>
+      <background_color>
+        <color name="Write_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button_56</name>
+      <actions>
+        <action type="write_pv">
+          <description>WritePV</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <pv_name>$(P)$(R)Acquire</pv_name>
+      <text>Start</text>
+      <x>210</x>
+      <y>70</y>
+      <width>110</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_11</name>
+      <pv_name>$(P)$(R)AcquireR</pv_name>
+      <x>445</x>
+      <y>75</y>
+      <off_color>
+        <color name="IO Background" red="235" green="235" blue="235">
+        </color>
+      </off_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button_59</name>
+      <actions>
+        <action type="write_pv">
+          <description>WritePV</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>0</value>
+        </action>
+      </actions>
+      <pv_name>$(P)$(R)Acquire</pv_name>
+      <text>Stop</text>
+      <x>330</x>
+      <y>70</y>
+      <width>110</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_331</name>
+      <text>Num Samples:</text>
+      <x>40</x>
+      <y>310</y>
+      <width>160</width>
+      <height>30</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_121</name>
+      <pv_name>$(P)$(R)NumSamplesR</pv_name>
+      <x>210</x>
+      <y>310</y>
+      <width>110</width>
+      <height>30</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="spinner" version="2.0.0">
+      <name>Spinner_10</name>
+      <pv_name>$(P)$(R)NumSamples</pv_name>
+      <x>340</x>
+      <y>310</y>
+      <width>110</width>
+      <height>30</height>
+      <actions>
+      </actions>
+      <minimum>1.0</minimum>
+      <maximum>32.0</maximum>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_334</name>
+      <text>Num Acquisitions:</text>
+      <x>40</x>
+      <y>350</y>
+      <width>160</width>
+      <height>30</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_122</name>
+      <pv_name>$(P)$(R)AcquisitionsR</pv_name>
+      <x>210</x>
+      <y>350</y>
+      <width>110</width>
+      <height>30</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_124</name>
+      <pv_name>$(P)$(R)$(CH)DownsampleNumber</pv_name>
+      <x>210</x>
+      <y>670</y>
+      <width>110</width>
+      <height>30</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_129</name>
+      <pv_name>$(P)$(R)$(CH)ROIMin</pv_name>
+      <x>210</x>
+      <y>590</y>
+      <width>110</width>
+      <height>30</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_130</name>
+      <pv_name>$(P)$(R)$(CH)ROIAverage</pv_name>
+      <x>210</x>
+      <y>550</y>
+      <width>110</width>
+      <height>30</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_131</name>
+      <pv_name>$(P)$(R)$(CH)Offset</pv_name>
+      <x>210</x>
+      <y>510</y>
+      <width>110</width>
+      <height>30</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_132</name>
+      <pv_name>$(P)$(R)$(CH)Gain</pv_name>
+      <x>210</x>
+      <y>470</y>
+      <width>110</width>
+      <height>30</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_133</name>
+      <pv_name>$(P)$(R)$(CH)ROIMax</pv_name>
+      <x>210</x>
+      <y>630</y>
+      <width>110</width>
+      <height>30</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_340</name>
+      <text>DownSampleNum</text>
+      <x>40</x>
+      <y>670</y>
+      <width>160</width>
+      <height>30</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_341</name>
+      <text>MAX</text>
+      <x>40</x>
+      <y>630</y>
+      <width>160</width>
+      <height>30</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_342</name>
+      <text>MIN</text>
+      <x>40</x>
+      <y>590</y>
+      <width>160</width>
+      <height>30</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_343</name>
+      <text>AVG</text>
+      <x>40</x>
+      <y>550</y>
+      <width>160</width>
+      <height>30</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_344</name>
+      <text>Offset</text>
+      <x>40</x>
+      <y>510</y>
+      <width>160</width>
+      <height>30</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_345</name>
+      <text>Gain</text>
+      <x>40</x>
+      <y>470</y>
+      <width>160</width>
+      <height>30</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_346</name>
+      <text>ROI Start</text>
+      <x>40</x>
+      <y>390</y>
+      <width>160</width>
+      <height>30</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_134</name>
+      <pv_name>$(P)$(R)$(CH)ROIMin-SP</pv_name>
+      <x>210</x>
+      <y>390</y>
+      <width>110</width>
+      <height>30</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_347</name>
+      <text>ROI End</text>
+      <x>40</x>
+      <y>430</y>
+      <width>160</width>
+      <height>30</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_135</name>
+      <pv_name>$(P)$(R)$(CH)ROIMax-SP</pv_name>
+      <x>210</x>
+      <y>430</y>
+      <width>110</width>
+      <height>30</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="spinner" version="2.0.0">
+      <name>Spinner_14</name>
+      <pv_name>$(P)$(R)$(CH)ROIMin-SP</pv_name>
+      <x>340</x>
+      <y>390</y>
+      <width>110</width>
+      <height>30</height>
+      <actions>
+      </actions>
+      <maximum>300000.0</maximum>
+    </widget>
+    <widget type="spinner" version="2.0.0">
+      <name>Spinner_15</name>
+      <pv_name>$(P)$(R)$(CH)ROIMax-SP</pv_name>
+      <x>340</x>
+      <y>430</y>
+      <width>110</width>
+      <height>30</height>
+      <actions>
+      </actions>
+      <maximum>300000.0</maximum>
+    </widget>
+    <widget type="spinner" version="2.0.0">
+      <name>Spinner_16</name>
+      <pv_name>$(P)$(R)$(CH)Gain</pv_name>
+      <x>340</x>
+      <y>470</y>
+      <width>110</width>
+      <height>30</height>
+      <actions>
+      </actions>
+      <minimum></minimum>
+      <maximum></maximum>
+    </widget>
+    <widget type="spinner" version="2.0.0">
+      <name>Spinner_17</name>
+      <pv_name>$(P)$(R)$(CH)Offset</pv_name>
+      <x>340</x>
+      <y>510</y>
+      <width>110</width>
+      <height>30</height>
+      <actions>
+      </actions>
+      <minimum></minimum>
+      <maximum></maximum>
+    </widget>
+    <widget type="spinner" version="2.0.0">
+      <name>Spinner_19</name>
+      <pv_name>$(P)$(R)$(CH)DownsampleNumber</pv_name>
+      <x>330</x>
+      <y>670</y>
+      <width>110</width>
+      <height>30</height>
+      <actions>
+      </actions>
+      <minimum>1.0</minimum>
+      <maximum>300000.0</maximum>
+    </widget>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display</name>
+    <macros>
+      <P>$(P)</P>
+      <R>$(R)</R>
+      <CH>CH1</CH>
+    </macros>
+    <file>mtca-scope-channel.bob</file>
+    <x>520</x>
+    <y>70</y>
+    <width>600</width>
+    <height>260</height>
+    <resize>2</resize>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display_1</name>
+    <macros>
+      <P>$(P)</P>
+      <R>$(R)</R>
+      <CH>CH1</CH>
+    </macros>
+    <file>mtca-scope-channel-transformed.bob</file>
+    <x>520</x>
+    <y>380</y>
+    <width>600</width>
+    <height>260</height>
+    <resize>2</resize>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display_2</name>
+    <macros>
+      <P>$(P)</P>
+      <R>$(R)</R>
+      <CH>CH1</CH>
+    </macros>
+    <file>mtca-scope-channel-transformed-time.bob</file>
+    <x>520</x>
+    <y>670</y>
+    <width>600</width>
+    <height>260</height>
+    <resize>2</resize>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display_3</name>
+    <macros>
+      <P>$(P)</P>
+      <R>$(R)</R>
+      <CH>CH1</CH>
+    </macros>
+    <file>mtca-scope-channel-down.bob</file>
+    <x>1150</x>
+    <y>70</y>
+    <width>600</width>
+    <height>260</height>
+    <resize>2</resize>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_348</name>
+    <text>Original Signal</text>
+    <x>740</x>
+    <y>60</y>
+    <width>160</width>
+    <height>30</height>
+    <horizontal_alignment>2</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_349</name>
+    <text>Transformed Signal</text>
+    <x>760</x>
+    <y>350</y>
+    <width>160</width>
+    <height>30</height>
+    <horizontal_alignment>2</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_350</name>
+    <text>TimeScale</text>
+    <x>720</x>
+    <y>640</y>
+    <width>160</width>
+    <height>30</height>
+    <horizontal_alignment>2</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_351</name>
+    <text>Downsampled Signal</text>
+    <x>1383</x>
+    <y>50</y>
+    <width>160</width>
+    <height>30</height>
+    <horizontal_alignment>2</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+</display>
