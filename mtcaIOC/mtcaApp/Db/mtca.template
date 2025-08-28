@@ -1,0 +1,45 @@
+
+record(longout, "$(P)$(R)NumAcq") {
+  field(VAL, "100")
+  field(PINI, "YES")
+}
+
+record(calcout, "$(P)$(R)NumAcqCalc") {
+  field(INPA, "$(P)$(R)NumAcq NPP NMS")
+  field(INPB, "$(P)$(R)AcquisitionsR CP NMS")
+  field(DISV, "0")
+  field(SDIS, "$(P)$(R)NumAcq CP NMS")
+  field(CALC, "B >= A ? 0 : 1")
+  field(OUT, "$(P)$(R)Acquire PP NMS")
+  field(OOPT, "Transition To Zero")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)AcqPeriod") {
+  field(VAL, "0.000001")
+  field(PINI, "YES")
+  field(EGU, "s")
+}
+
+record(ai, "$(P)$(R)AcqPeriodR") {
+  field(EGU, "s")
+}
+
+record(calcout, "$(P)$(R)AcqPeriodToNumSamples") {
+  field(INPA, "$(P)$(R)AcqPeriod CP NMS")
+  field(INPB, "$(P)$(R)SamplingFrequencyR CP NMS")
+  field(CALC, "A * B")
+  field(OUT, "$(P)$(R)NumSamples PP NMS")
+  field(OOPT, "On Change")
+  field(PINI, "YES")
+}
+
+record(calcout, "$(P)$(R)NumSamplesToAcqPeriod") {
+  field(INPA, "$(P)$(R)NumSamplesR CP NMS")
+  field(INPB, "$(P)$(R)SamplingFrequencyR CP NMS")
+  field(CALC, "A / B")
+  field(OUT, "$(P)$(R)AcqPeriodR PP NMS")
+  field(OOPT, "On Change")
+  field(PINI, "YES")
+}
+

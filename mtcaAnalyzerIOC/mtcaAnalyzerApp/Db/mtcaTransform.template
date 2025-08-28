@@ -1,0 +1,18 @@
+record(aSub, "$(P)$(R)TimeTransform") {
+  field(INPA, "$(P)$(R)NumSamplesR CP NMS")
+  field(FTA, "LONG")
+  field(INPB, "$(P)$(R)SamplingFrequencyR CP NMS")
+  field(FTB, "LONG")
+
+  field(FTVA, "DOUBLE")
+  field(NOVA, "300000") # max output size
+
+  field(LFLG, "IGNORE")
+  field(SNAM, "calculateTimeArray")
+  field(OUTA, "$(P)$(R)ArrayTime PP NMS")
+}
+
+record(waveform, "$(P)$(R)ArrayTime") {
+  field(FTVL, "DOUBLE")
+  field(NELM, "300000")
+}

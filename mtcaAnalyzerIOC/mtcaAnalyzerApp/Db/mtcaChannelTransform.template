@@ -1,0 +1,246 @@
+record(ao, "$(P)$(R)$(CH)Gain") {
+  field(VAL, "1")
+  field(PINI, "1")
+}
+
+record(ao, "$(P)$(R)$(CH)Offset") {
+  field(VAL, "0")
+  field(PINI, "1")
+}
+
+record(aSub, "$(P)$(R)$(CH)Transform") {
+  field(INPA, "$(P)$(R)$(CH)Gain PP NMS")
+  field(FTA, "DOUBLE")
+  field(INPB, "$(P)$(R)$(CH)Offset PP NMS")
+  field(FTB, "DOUBLE")
+  field(INPC, "$(P)$(R)$(CH)ArrayData CP NMS")
+  field(FTC, "SHORT")
+  field(NOC, "300000") # max input size like original
+
+  field(FTVA, "DOUBLE")
+  field(NOVA, "300000") # max output size
+  field(OUTA, "$(P)$(R)$(CH)ArrayDataTransf PP NMS")
+
+  field(LFLG, "IGNORE")
+  field(SNAM, "applyTransform")
+}
+
+record(waveform, "$(P)$(R)$(CH)ArrayDataTransf") {
+  field(FTVL, "DOUBLE")
+  field(NELM, "300000")
+}
+
+record(acalcout, "$(P)$(R)$(CH)ReduceAverage") {
+  field(INAA, "$(P)$(R)$(CH)ArrayDataTransf CP NMS")
+  field(CALC, "AVG(AA)")
+  field(NELM, "300000")
+  field(OOPT, "On Change")
+  field(OUT, "$(P)$(R)$(CH)Average PP NMS")
+}
+
+record(ai, "$(P)$(R)$(CH)Average") {
+}
+
+# record(acalcout, "$(P)$(R)$(CH)ReduceMedian") {
+#   field(INAA, "$(P)$(R)$(CH)ArrayDataTransf CP NMS")
+#   field(CALC, "MED(AA)")
+#   field(OOPT, "On Change")
+#   field(OUT, "$(P)$(R)$(CH)Median PP NMS")
+# }
+# 
+# record(ai, "$(P)$(R)$(CH)Median") {
+# }
+
+record(acalcout, "$(P)$(R)$(CH)ReduceMax") {
+  field(INAA, "$(P)$(R)$(CH)ArrayDataTransf CP NMS")
+  field(NELM, "300000")
+  field(CALC, "AMAX(AA)")
+  field(OOPT, "On Change")
+  field(OUT, "$(P)$(R)$(CH)Max PP NMS")
+}
+
+record(ai, "$(P)$(R)$(CH)Max") {
+}
+
+record(acalcout, "$(P)$(R)$(CH)ReduceMin") {
+  field(INAA, "$(P)$(R)$(CH)ArrayDataTransf CP NMS")
+  field(CALC, "AMIN(AA)")
+  field(NELM, "300000")
+  field(OOPT, "On Change")
+  field(OUT, "$(P)$(R)$(CH)Min PP NMS")
+}
+
+record(ai, "$(P)$(R)$(CH)Min") {
+}
+
+record(ao, "$(P)$(R)$(CH)ROIMin-SP") {
+  field(VAL, "0")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)$(CH)ROIMax-SP") {
+  field(DOL, "$(P)$(R)NumSamplesR NPP")
+  field(OMSL, "closed_loop")
+  field(PINI, "YES")
+}
+
+record(acalcout, "$(P)$(R)$(CH)ReduceROIAverage") {
+  field(INPA, "$(P)$(R)$(CH)ROIMin-SP CP NMS")
+  field(INPB, "$(P)$(R)$(CH)ROIMax-SP CP NMS")
+  field(INAA, "$(P)$(R)$(CH)ArrayDataTransf CP NMS")
+  field(CALC, "AVG(AA[A, B])")
+  field(NELM, "300000")
+  field(OOPT, "On Change")
+  field(OUT, "$(P)$(R)$(CH)ROIAverage PP NMS")
+}
+
+record(ai, "$(P)$(R)$(CH)ROIAverage") {
+}
+
+record(acalcout, "$(P)$(R)$(CH)ReduceROIMin") {
+  field(INPA, "$(P)$(R)$(CH)ROIMin-SP CP NMS")
+  field(INPB, "$(P)$(R)$(CH)ROIMax-SP CP NMS")
+  field(INAA, "$(P)$(R)$(CH)ArrayDataTransf CP NMS")
+  field(CALC, "AMIN(AA[A, B])")
+  field(NELM, "300000")
+  field(OOPT, "On Change")
+  field(OUT, "$(P)$(R)$(CH)ROIMin PP NMS")
+}
+
+record(ai, "$(P)$(R)$(CH)ROIMin") {
+}
+
+record(acalcout, "$(P)$(R)$(CH)ReduceROIMax") {
+  field(INPA, "$(P)$(R)$(CH)ROIMin-SP CP NMS")
+  field(INPB, "$(P)$(R)$(CH)ROIMax-SP CP NMS")
+  field(INAA, "$(P)$(R)$(CH)ArrayDataTransf CP NMS")
+  field(CALC, "AMAX(AA[A, B])")
+  field(NELM, "300000")
+  field(OOPT, "On Change")
+  field(OUT, "$(P)$(R)$(CH)ROIMax PP NMS")
+}
+
+record(ai, "$(P)$(R)$(CH)ROIMax") {
+}
+
+record(mbbo, "$(P)$(R)$(CH)FFTWindowType") {
+  field(DTYP, "FFTW")
+  field(OUT, "@$(P)$(R)$(CH) windowtype")
+  field(ZRST, "None")
+  field(ZRVL, "0")
+  field(ONST, "Hann")
+  field(ONVL, "1")
+  field(VAL, "0")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)$(CH)FFTFSample") {
+  field(DTYP, "FFTW")
+  field(OUT, "@$(P)$(R)$(CH) sample-freq")
+  field(VAL, "5000000")
+  field(PINI, "YES")
+}
+
+record(ai, "$(P)$(R)$(CH)FFTExecTime") {
+  field(DTYP, "FFTW")
+  field(INP, "@$(P)$(R)$(CH) exectime")
+  field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(P)$(R)$(CH)FFTExecCount") {
+  field(DTYP, "FFTW")
+  field(INP, "@$(P)$(R)$(CH) execcount")
+  field(SCAN, "I/O Intr")
+}
+
+record(aSub, "$(P)$(R)$(CH)FFTSub") {
+  field(INAM, "FFTW_init")
+  field(SNAM, "FFTW_input")
+  field(INPA, "$(P)$(R)$(CH)ArrayDataTransf CP NMS")
+  field(FTA, "DOUBLE")
+  field(NOA, "300000")
+  info(fftw:CONFIG, "$(P)$(R)$(CH) input-real trigger=y")
+}
+
+record(aai, "$(P)$(R)$(CH)FFTOutReal") {
+  field(DTYP, "FFTW")
+  field(INP, "@$(P)$(R)$(CH) output-real")
+  field(FTVL, "DOUBLE")
+  field(NELM, "150001")
+  field(SCAN, "I/O Intr")
+}
+
+record(aai, "$(P)$(R)$(CH)FFTOutImag") {
+  field(DTYP, "FFTW")
+  field(INP, "@$(P)$(R)$(CH) output-imag")
+  field(FTVL, "DOUBLE")
+  field(NELM, "150001")
+  field(SCAN, "I/O Intr")
+}
+
+record (aai, "$(P)$(R)$(CH)FFTOutMagn") {
+  field(DTYP, "FFTW")
+  field(INP, "@$(P)$(R)$(CH) output-magn")
+  field(FTVL, "DOUBLE")
+  field(NELM, "150001")
+  field(SCAN, "I/O Intr")
+}
+
+record (aai, "$(P)$(R)$(CH)FFTOutPhas") {
+  field(DTYP, "FFTW")
+  field(INP, "@$(P)$(R)$(CH) output-phas")
+  field(FTVL, "DOUBLE")
+  field(NELM, "150001")
+  field(SCAN, "I/O Intr")
+}
+
+record (aai, "$(P)$(R)$(CH)FFTOutFScale") {
+  field(DTYP, "FFTW")
+  field(INP, "@$(P)$(R)$(CH) output-fscale")
+  field(FTVL, "DOUBLE")
+  field(NELM, "150001")
+  field(SCAN, "I/O Intr")
+}
+
+record (aai, "$(P)$(R)$(CH)FFTWindow") {
+  field(DTYP, "FFTW")
+  field(INP, "@$(P)$(R)$(CH) output-window")
+  field(FTVL, "DOUBLE")
+  field(NELM, "300000")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "$(P)$(R)$(CH)DownsampleNumber") {
+  field(VAL, "50")
+  field(PINI, "1")
+}
+
+record(aSub, "$(P)$(R)$(CH)LTTBDownsample") {
+  field(INPA, "$(P)$(R)$(CH)ArrayData CP NMS")
+  field(FTA, "DOUBLE")
+  field(NOA, "300000") # max input size like original
+
+  field(INPB, "$(P)$(R)$(CH)DownsampleNumber PP NMS")
+  field(FTB, "LONG")
+
+  field(FTVA, "DOUBLE")
+  field(NOVA, "300000") # max output size
+  field(OUTA, "$(P)$(R)$(CH)ArrayDownsampledX PP NMS")
+
+  field(FTVB, "DOUBLE")
+  field(NOVB, "300000") # max output size
+  field(OUTB, "$(P)$(R)$(CH)ArrayDownsampledY PP NMS")
+
+  field(LFLG, "IGNORE")
+  field(SNAM, "applyLTTB")
+}
+
+record(waveform, "$(P)$(R)$(CH)ArrayDownsampledX") {
+  field(FTVL, "DOUBLE")
+  field(NELM, "300000")
+}
+
+record(waveform, "$(P)$(R)$(CH)ArrayDownsampledY") {
+  field(FTVL, "DOUBLE")
+  field(NELM, "300000")
+}
