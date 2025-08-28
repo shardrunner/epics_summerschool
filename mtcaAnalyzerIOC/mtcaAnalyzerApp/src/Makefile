@@ -23,6 +23,7 @@ mtcaAnalyzer_DBD += calcSupport.dbd
 mtcaAnalyzer_DBD += fftw.dbd
 mtcaAnalyzer_DBD += mtcaScope.dbd
 mtcaAnalyzer_DBD += mtcaTransform.dbd
+mtcaAnalyzer_DBD += asSupport.dbd
 
 # Include dbd files from all support applications:
 #mtcaAnalyzer_DBD += xxx.dbd
@@ -33,6 +34,7 @@ mtcaAnalyzer_LIBS += asyn
 mtcaAnalyzer_LIBS += calc
 mtcaAnalyzer_LIBS += fftwSup
 mtcaAnalyzer_LIBS += mtcaScope
+mtcaAnalyzer_LIBS += autosave
 
 # mtcaAnalyzer_registerRecordDeviceDriver.cpp derives from mtcaAnalyzer.dbd
 mtcaAnalyzer_SRCS += mtcaAnalyzer_registerRecordDeviceDriver.cpp
