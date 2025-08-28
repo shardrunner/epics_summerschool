@@ -24,6 +24,7 @@ mtcaAnalyzer_DBD += fftw.dbd
 mtcaAnalyzer_DBD += mtcaScope.dbd
 mtcaAnalyzer_DBD += mtcaTransform.dbd
 mtcaAnalyzer_DBD += asSupport.dbd
+mtcaAnalyzer_DBD += linStat.dbd
 
 # Include dbd files from all support applications:
 #mtcaAnalyzer_DBD += xxx.dbd
@@ -35,6 +36,7 @@ mtcaAnalyzer_LIBS += calc
 mtcaAnalyzer_LIBS += fftwSup
 mtcaAnalyzer_LIBS += mtcaScope
 mtcaAnalyzer_LIBS += autosave
+mtcaAnalyzer_LIBS += linStat
 
 # mtcaAnalyzer_registerRecordDeviceDriver.cpp derives from mtcaAnalyzer.dbd
 mtcaAnalyzer_SRCS += mtcaAnalyzer_registerRecordDeviceDriver.cpp
@@ -46,6 +48,7 @@ mtcaAnalyzer_SRCS_vxWorks += -nil-
 
 # Add support from base/src/vxWorks if needed
 #mtcaAnalyzer_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
+
 
 # Finally link to the EPICS Base libraries
 mtcaAnalyzer_LIBS += $(EPICS_BASE_IOC_LIBS)

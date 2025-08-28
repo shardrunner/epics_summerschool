@@ -79,8 +79,7 @@ record(ao, "$(P)$(R)$(CH)ROIMin-SP") {
 }
 
 record(ao, "$(P)$(R)$(CH)ROIMax-SP") {
-  field(DOL, "$(P)$(R)NumSamplesR NPP")
-  field(OMSL, "closed_loop")
+  field(VAL, "0")
   field(PINI, "YES")
 }
 

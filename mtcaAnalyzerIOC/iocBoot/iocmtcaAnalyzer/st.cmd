@@ -13,6 +13,8 @@ cd "${TOP}"
 
 epicsEnvSet("PORT", "MTCAB")
 epicsEnvSet("PREFIX", "ADC3117:")
+epicsEnvSet("IOC", "LINSTAT")
+epicsEnvSet("LINSTAT", "/epics/support/linstat")
 
 ## Register all support components
 dbLoadDatabase "dbd/mtcaAnalyzer.dbd"
@@ -34,6 +36,24 @@ set_requestfile_path("$(TOP)/as/req")
 
 #set_pass0_restoreFile("", "")
 set_pass1_restoreFile("auto_settings.sav", "P=$(PREFIX), R=, CH=CH1")
+
+# System-wide information
+dbLoadRecords("/epics/support/linStat/db/linStatHost.db","IOC=$(IOC)")
+
+# IOC process specific information
+dbLoadRecords("/epics/support/linStat/db/linStatProc.db","IOC=$(IOC)")
+
+# Network interface information
+dbLoadRecords("/epics/support/linStat/db/linStatNIC.db","IOC=$(IOC),NIC=lo")
+# may repeat with different NIC= network interface name(s)
+#dbLoadRecords("/epics/support/linStat/db/linStatNIC.db","IOC=$(IOC),NIC=eth0")
+
+# File system mount point information
+dbLoadRecords("/epics/support/linStat/db/linStatFS.db","P=$(IOC):ROOT,DIR=/")
+# may repeat with different file system mount points
+# change both P= and DIR=
+#dbLoadRecords("/epics/support/linStat/db/linStatFS.db","P=$(IOC):DATA,DIR=/data")
+
 
 cd "${TOP}/iocBoot/${IOC}"
 iocInit
