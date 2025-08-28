@@ -12,25 +12,126 @@
   <actions>
   </actions>
   <widget type="rectangle" version="2.0.0">
-    <name>BGGrey03-background_11</name>
-    <x>30</x>
-    <y>110</y>
-    <width>450</width>
-    <height>720</height>
-    <line_width>0</line_width>
+    <name>Rectangle_4</name>
+    <y>50</y>
+    <width>1200</width>
+    <height>770</height>
+    <line_color>
+      <color name="Header_Background" red="77" green="77" blue="77">
+      </color>
+    </line_color>
     <background_color>
-      <color name="GROUP-BACKGROUND" red="200" green="205" blue="201">
+      <color red="242" green="242" blue="242">
       </color>
     </background_color>
-    <corner_width>5</corner_width>
-    <corner_height>5</corner_height>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>Rectangle_5</name>
+    <x>510</x>
+    <y>60</y>
+    <width>680</width>
+    <height>370</height>
+    <line_color>
+      <color name="Grid" red="128" green="128" blue="128">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="Button_Background" red="210" green="210" blue="210">
+      </color>
+    </background_color>
+    <corner_width>10</corner_width>
+    <corner_height>10</corner_height>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>Rectangle_2</name>
+    <x>510</x>
+    <y>440</y>
+    <width>680</width>
+    <height>370</height>
+    <line_color>
+      <color name="Grid" red="128" green="128" blue="128">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="Button_Background" red="210" green="210" blue="210">
+      </color>
+    </background_color>
+    <corner_width>10</corner_width>
+    <corner_height>10</corner_height>
+  </widget>
+  <widget type="tabs" version="2.0.0">
+    <name>Tabs_1</name>
+    <tabs>
+      <tab>
+        <name>TimeScale</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display_2</name>
+            <macros>
+              <P>$(P)</P>
+              <R>$(R)</R>
+              <CH>CH1</CH>
+            </macros>
+            <file>mtca-scope-channel-transformed-time.bob</file>
+            <x>18</x>
+            <y>19</y>
+            <width>600</width>
+            <height>260</height>
+            <resize>2</resize>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Downsampled Signal</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display_3</name>
+            <macros>
+              <P>$(P)</P>
+              <R>$(R)</R>
+              <CH>CH1</CH>
+            </macros>
+            <file>mtca-scope-channel-down.bob</file>
+            <x>18</x>
+            <y>19</y>
+            <width>600</width>
+            <height>260</height>
+            <resize>2</resize>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>FFT</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display_4</name>
+            <macros>
+              <P>$(P)</P>
+              <R>$(R)</R>
+              <CH>CH1</CH>
+            </macros>
+            <file>mtca-scope-fft.bob</file>
+            <x>18</x>
+            <y>19</y>
+            <width>600</width>
+            <height>260</height>
+            <resize>2</resize>
+          </widget>
+        </children>
+      </tab>
+    </tabs>
+    <x>530</x>
+    <y>450</y>
+    <width>640</width>
+    <height>340</height>
+    <active_tab>2</active_tab>
   </widget>
   <widget type="rectangle" version="2.0.0">
     <name>BGGrey03-titlebar_5</name>
     <x>10</x>
     <y>60</y>
     <width>490</width>
-    <height>790</height>
+    <height>750</height>
     <line_width>0</line_width>
     <background_color>
       <color name="GROUP-BORDER" red="150" green="155" blue="151">
@@ -38,6 +139,20 @@
     </background_color>
     <corner_width>10</corner_width>
     <corner_height>10</corner_height>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>BGGrey03-background_11</name>
+    <x>30</x>
+    <y>110</y>
+    <width>450</width>
+    <height>660</height>
+    <line_width>0</line_width>
+    <background_color>
+      <color name="GROUP-BACKGROUND" red="200" green="205" blue="201">
+      </color>
+    </background_color>
+    <corner_width>5</corner_width>
+    <corner_height>5</corner_height>
   </widget>
   <widget type="rectangle" version="2.0.0">
     <name>titleBar</name>
@@ -54,13 +169,14 @@
     <name>title</name>
     <class>TITLE</class>
     <macros>
-      <P>FOO:</P>
-      <R>BAR:</R>
+      <P>EPICS:</P>
+      <R>SUMMER SCHOOL:</R>
+      <S>2025</S>
     </macros>
-    <text>$(TITLE) - $(P)$(R)</text>
+    <text>$(TITLE) - $(P)$(R)$(S)</text>
     <x use_class="true">0</x>
     <y use_class="true">0</y>
-    <width>600</width>
+    <width>1200</width>
     <height>50</height>
     <font use_class="true">
       <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
@@ -71,13 +187,14 @@
       </color>
     </foreground_color>
     <transparent use_class="true">true</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
     <vertical_alignment>1</vertical_alignment>
     <wrap_words>false</wrap_words>
   </widget>
   <widget type="action_button" version="3.0.0">
     <name>Action Button</name>
     <text>HELP</text>
-    <x>2000</x>
+    <x>1090</x>
     <y>10</y>
     <font>
       <font family="Source Sans Pro" style="BOLD" size="16.0">
@@ -90,7 +207,7 @@
     <x>10</x>
     <y>60</y>
     <width>490</width>
-    <height>790</height>
+    <height>750</height>
     <style>3</style>
     <transparent>true</transparent>
     <widget type="spinner" version="2.0.0">
@@ -107,7 +224,7 @@
     </widget>
     <widget type="label" version="2.0.0">
       <name>BGGrey02-title_20</name>
-      <text>Acquisition</text>
+      <text>Acquisition settings</text>
       <width>490</width>
       <height>50</height>
       <font>
@@ -176,9 +293,9 @@
     <widget type="label" version="2.0.0">
       <name>Label_324</name>
       <text>Clock Frequency:</text>
-      <x>40</x>
+      <x>80</x>
       <y>110</y>
-      <width>160</width>
+      <width>120</width>
       <height>30</height>
       <horizontal_alignment>2</horizontal_alignment>
       <vertical_alignment>1</vertical_alignment>
@@ -193,9 +310,9 @@
     <widget type="label" version="2.0.0">
       <name>Label_325</name>
       <text>Acquire:</text>
-      <x>40</x>
+      <x>60</x>
       <y>70</y>
-      <width>160</width>
+      <width>140</width>
       <height>30</height>
       <horizontal_alignment>2</horizontal_alignment>
       <vertical_alignment>1</vertical_alignment>
@@ -210,9 +327,9 @@
     <widget type="label" version="2.0.0">
       <name>Label_326</name>
       <text>Sample Frequency:</text>
-      <x>40</x>
+      <x>70</x>
       <y>190</y>
-      <width>160</width>
+      <width>130</width>
       <height>30</height>
       <horizontal_alignment>2</horizontal_alignment>
       <vertical_alignment>1</vertical_alignment>
@@ -227,9 +344,9 @@
     <widget type="label" version="2.0.0">
       <name>Label_330</name>
       <text>Clock Divider:</text>
-      <x>40</x>
+      <x>60</x>
       <y>150</y>
-      <width>160</width>
+      <width>140</width>
       <height>30</height>
       <horizontal_alignment>2</horizontal_alignment>
       <vertical_alignment>1</vertical_alignment>
@@ -244,9 +361,9 @@
     <widget type="label" version="2.0.0">
       <name>Label_332</name>
       <text>Trigger Source:</text>
-      <x>40</x>
+      <x>60</x>
       <y>230</y>
-      <width>160</width>
+      <width>140</width>
       <height>30</height>
       <horizontal_alignment>2</horizontal_alignment>
       <vertical_alignment>1</vertical_alignment>
@@ -291,9 +408,9 @@
     <widget type="label" version="2.0.0">
       <name>Label_333</name>
       <text>Trigger Line:</text>
-      <x>40</x>
+      <x>60</x>
       <y>270</y>
-      <width>160</width>
+      <width>140</width>
       <height>30</height>
       <horizontal_alignment>2</horizontal_alignment>
       <vertical_alignment>1</vertical_alignment>
@@ -380,9 +497,9 @@
     <widget type="label" version="2.0.0">
       <name>Label_331</name>
       <text>Num Samples:</text>
-      <x>40</x>
+      <x>60</x>
       <y>310</y>
-      <width>160</width>
+      <width>140</width>
       <height>30</height>
       <horizontal_alignment>2</horizontal_alignment>
       <vertical_alignment>1</vertical_alignment>
@@ -426,9 +543,9 @@
     <widget type="label" version="2.0.0">
       <name>Label_334</name>
       <text>Num Acquisitions:</text>
-      <x>40</x>
+      <x>80</x>
       <y>350</y>
-      <width>160</width>
+      <width>120</width>
       <height>30</height>
       <horizontal_alignment>2</horizontal_alignment>
       <vertical_alignment>1</vertical_alignment>
@@ -562,9 +679,9 @@
     <widget type="label" version="2.0.0">
       <name>Label_340</name>
       <text>DownSampleNum</text>
-      <x>40</x>
+      <x>60</x>
       <y>670</y>
-      <width>160</width>
+      <width>140</width>
       <height>30</height>
       <horizontal_alignment>2</horizontal_alignment>
       <vertical_alignment>1</vertical_alignment>
@@ -579,9 +696,9 @@
     <widget type="label" version="2.0.0">
       <name>Label_341</name>
       <text>MAX</text>
-      <x>40</x>
+      <x>60</x>
       <y>630</y>
-      <width>160</width>
+      <width>140</width>
       <height>30</height>
       <horizontal_alignment>2</horizontal_alignment>
       <vertical_alignment>1</vertical_alignment>
@@ -596,9 +713,9 @@
     <widget type="label" version="2.0.0">
       <name>Label_342</name>
       <text>MIN</text>
-      <x>40</x>
+      <x>60</x>
       <y>590</y>
-      <width>160</width>
+      <width>140</width>
       <height>30</height>
       <horizontal_alignment>2</horizontal_alignment>
       <vertical_alignment>1</vertical_alignment>
@@ -613,9 +730,9 @@
     <widget type="label" version="2.0.0">
       <name>Label_343</name>
       <text>AVG</text>
-      <x>40</x>
+      <x>60</x>
       <y>550</y>
-      <width>160</width>
+      <width>140</width>
       <height>30</height>
       <horizontal_alignment>2</horizontal_alignment>
       <vertical_alignment>1</vertical_alignment>
@@ -630,9 +747,9 @@
     <widget type="label" version="2.0.0">
       <name>Label_344</name>
       <text>Offset</text>
-      <x>40</x>
+      <x>60</x>
       <y>510</y>
-      <width>160</width>
+      <width>140</width>
       <height>30</height>
       <horizontal_alignment>2</horizontal_alignment>
       <vertical_alignment>1</vertical_alignment>
@@ -647,9 +764,9 @@
     <widget type="label" version="2.0.0">
       <name>Label_345</name>
       <text>Gain</text>
-      <x>40</x>
+      <x>60</x>
       <y>470</y>
-      <width>160</width>
+      <width>140</width>
       <height>30</height>
       <horizontal_alignment>2</horizontal_alignment>
       <vertical_alignment>1</vertical_alignment>
@@ -664,9 +781,9 @@
     <widget type="label" version="2.0.0">
       <name>Label_346</name>
       <text>ROI Start</text>
-      <x>40</x>
+      <x>60</x>
       <y>390</y>
-      <width>160</width>
+      <width>140</width>
       <height>30</height>
       <horizontal_alignment>2</horizontal_alignment>
       <vertical_alignment>1</vertical_alignment>
@@ -698,9 +815,9 @@
     <widget type="label" version="2.0.0">
       <name>Label_347</name>
       <text>ROI End</text>
-      <x>40</x>
+      <x>60</x>
       <y>430</y>
-      <width>160</width>
+      <width>140</width>
       <height>30</height>
       <horizontal_alignment>2</horizontal_alignment>
       <vertical_alignment>1</vertical_alignment>
@@ -778,7 +895,7 @@
     <widget type="spinner" version="2.0.0">
       <name>Spinner_19</name>
       <pv_name>$(P)$(R)$(CH)DownsampleNumber</pv_name>
-      <x>330</x>
+      <x>340</x>
       <y>670</y>
       <width>110</width>
       <height>30</height>
@@ -788,128 +905,51 @@
       <maximum>300000.0</maximum>
     </widget>
   </widget>
-  <widget type="embedded" version="2.0.0">
-    <name>Embedded Display</name>
-    <macros>
-      <P>$(P)</P>
-      <R>$(R)</R>
-      <CH>CH1</CH>
-    </macros>
-    <file>mtca-scope-channel.bob</file>
-    <x>520</x>
+  <widget type="tabs" version="2.0.0">
+    <name>Tabs</name>
+    <tabs>
+      <tab>
+        <name>Raw signal</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display</name>
+            <macros>
+              <P>$(P)</P>
+              <R>$(R)</R>
+              <CH>CH1</CH>
+            </macros>
+            <file>mtca-scope-channel.bob</file>
+            <x>18</x>
+            <y>17</y>
+            <width>600</width>
+            <height>260</height>
+            <resize>2</resize>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Transformed Signal</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display_1</name>
+            <macros>
+              <P>$(P)</P>
+              <R>$(R)</R>
+              <CH>CH1</CH>
+            </macros>
+            <file>mtca-scope-channel-transformed.bob</file>
+            <x>18</x>
+            <y>17</y>
+            <width>600</width>
+            <height>260</height>
+            <resize>2</resize>
+          </widget>
+        </children>
+      </tab>
+    </tabs>
+    <x>530</x>
     <y>70</y>
-    <width>600</width>
-    <height>260</height>
-    <resize>2</resize>
-  </widget>
-  <widget type="embedded" version="2.0.0">
-    <name>Embedded Display_1</name>
-    <macros>
-      <P>$(P)</P>
-      <R>$(R)</R>
-      <CH>CH1</CH>
-    </macros>
-    <file>mtca-scope-channel-transformed.bob</file>
-    <x>520</x>
-    <y>380</y>
-    <width>600</width>
-    <height>260</height>
-    <resize>2</resize>
-  </widget>
-  <widget type="embedded" version="2.0.0">
-    <name>Embedded Display_2</name>
-    <macros>
-      <P>$(P)</P>
-      <R>$(R)</R>
-      <CH>CH1</CH>
-    </macros>
-    <file>mtca-scope-channel-transformed-time.bob</file>
-    <x>520</x>
-    <y>670</y>
-    <width>600</width>
-    <height>260</height>
-    <resize>2</resize>
-  </widget>
-  <widget type="embedded" version="2.0.0">
-    <name>Embedded Display_3</name>
-    <macros>
-      <P>$(P)</P>
-      <R>$(R)</R>
-      <CH>CH1</CH>
-    </macros>
-    <file>mtca-scope-channel-down.bob</file>
-    <x>1150</x>
-    <y>70</y>
-    <width>600</width>
-    <height>260</height>
-    <resize>2</resize>
-  </widget>
-  <widget type="label" version="2.0.0">
-    <name>Label_348</name>
-    <text>Original Signal</text>
-    <x>740</x>
-    <y>60</y>
-    <width>160</width>
-    <height>30</height>
-    <horizontal_alignment>2</horizontal_alignment>
-    <vertical_alignment>1</vertical_alignment>
-    <wrap_words>false</wrap_words>
-    <actions>
-    </actions>
-    <border_color>
-      <color red="0" green="128" blue="255">
-      </color>
-    </border_color>
-  </widget>
-  <widget type="label" version="2.0.0">
-    <name>Label_349</name>
-    <text>Transformed Signal</text>
-    <x>760</x>
-    <y>350</y>
-    <width>160</width>
-    <height>30</height>
-    <horizontal_alignment>2</horizontal_alignment>
-    <vertical_alignment>1</vertical_alignment>
-    <wrap_words>false</wrap_words>
-    <actions>
-    </actions>
-    <border_color>
-      <color red="0" green="128" blue="255">
-      </color>
-    </border_color>
-  </widget>
-  <widget type="label" version="2.0.0">
-    <name>Label_350</name>
-    <text>TimeScale</text>
-    <x>720</x>
-    <y>640</y>
-    <width>160</width>
-    <height>30</height>
-    <horizontal_alignment>2</horizontal_alignment>
-    <vertical_alignment>1</vertical_alignment>
-    <wrap_words>false</wrap_words>
-    <actions>
-    </actions>
-    <border_color>
-      <color red="0" green="128" blue="255">
-      </color>
-    </border_color>
-  </widget>
-  <widget type="label" version="2.0.0">
-    <name>Label_351</name>
-    <text>Downsampled Signal</text>
-    <x>1383</x>
-    <y>50</y>
-    <width>160</width>
-    <height>30</height>
-    <horizontal_alignment>2</horizontal_alignment>
-    <vertical_alignment>1</vertical_alignment>
-    <wrap_words>false</wrap_words>
-    <actions>
-    </actions>
-    <border_color>
-      <color red="0" green="128" blue="255">
-      </color>
-    </border_color>
+    <width>640</width>
+    <height>340</height>
   </widget>
 </display>
