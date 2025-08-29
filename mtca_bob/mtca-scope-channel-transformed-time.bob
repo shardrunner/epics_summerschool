@@ -27,7 +27,7 @@
     </x_axis>
     <y_axes>
       <y_axis>
-        <title>Voltage</title>
+        <title>ADC Counts</title>
         <autoscale>true</autoscale>
         <log_scale>false</log_scale>
         <minimum>0.0</minimum>
